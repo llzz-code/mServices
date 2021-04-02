@@ -20,6 +20,18 @@ class LoginHandler(RequestHandler):
 
 
     def get(self):
+        pass
+
+    
+    def set_default_headers(self):
+        self.set_header('Access-Control-Allow-Origin', '*')
+        self.set_header('Access-Control-Allow-Headers', 'Content-Type,x-requested-with')
+        self.set_header('Access-Control-Allow-Methods',
+                        'GET,POST,PUT,DELETE')
+
+
+
+    def post(self):
         # 读取json数据
         byte = self.request.body
         print(byte)
@@ -51,11 +63,7 @@ class LoginHandler(RequestHandler):
         else:
             self.write('upload data 必须是Json格式')
 
-
         self.write('login---get')
-
-    def post(self):
-        pass
 
     def put(self):
         pass
