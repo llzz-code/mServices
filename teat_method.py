@@ -19,3 +19,15 @@ class TeatTornadoRequest(TestCase):
             'city': 'JiangXi'
         })
         print(resp.text)
+
+
+class TestUserRequset(TestCase):
+    url = 'http://localhost:7000/user'
+
+    def test_login(self):
+        resp = requests.get(self.url,
+                            json={
+                                'name': 'lz',
+                                'pwd': '123456'
+                            })
+        print(resp.text)
