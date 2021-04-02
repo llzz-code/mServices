@@ -66,6 +66,7 @@ class CookieHandler(RequestHandler):
     #         self.write('<h2>删除%s 成功</h2>' % name)
     #     else:
     #         self.write('<h2>无cookies</h2>')
+    # self.redirect('cookie')  重定向
 
 
 
