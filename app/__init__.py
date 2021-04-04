@@ -4,7 +4,7 @@ from tornado.web import Application
 
 from app.ui.nav import NavModule
 from app.views.cookie_v import CookieHandler
-from app.views.download import DownloadHandler
+from app.views.download import DownloadHandler, AsyncDownloadHandler, AsyncHandler
 from app.views.index_v import IndexHandler
 from app.views.order_v import OrderHandler
 from app.views.search_v import SearchHandler
@@ -34,6 +34,8 @@ def make_app(host='localhost'):
         ('/cookie', CookieHandler),
         (r'/order/(\d+)/(\d+)', OrderHandler),
         ('/admin/index', AdminHandler),
-        ('/download', DownloadHandler)
+        ('/download', DownloadHandler),
+        ('async', AsyncDownloadHandler),
+        ('/async2', AsyncHandler)
     ], default_host=host,
         **settings)
