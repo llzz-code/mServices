@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理后台</title>
+    <link rel="stylesheet" href="{{ static_url('css/base.css') }}">
+    {% block css %}{% end %}
+</head>
+<body>
+<div class="header">
+    <p>管理中心</p>
+</div>
+<div class="content">
+    <div id="left_nav">
+        <ul>
+            {% for nav in navs %}
+            <li><a href="{{ nav.url }}">{{ nav.title }}</a></li>
+            {% end %}
+        </ul>
+    </div>
+    <div id="right_con">
+        {% if index %}
+        <img src="{{ static_url('images/nice.jpg') }}" id="index_img">
+        {% else %}
+        {% block content %}
+        {% end %}
+        {% end %}
+    </div>
+</div>
+<div class="foo">
+    <p>&copy;Copyright&nbsp;&nbsp;LZ站长系统</p>
+</div>
+</body>
+</html>

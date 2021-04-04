@@ -9,5 +9,8 @@
 <p>
     {{ msg }}
 </p>
+{% if error_msg is not None %}
+<span>{{ error_msg }}</span>
+{% end %}
 </body>
 </html>
