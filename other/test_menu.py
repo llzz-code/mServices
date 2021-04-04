@@ -11,10 +11,11 @@ class TeatMenu(TestCase):
 
     def test_add(self):
         m1 = Menu()
-        m1.title = 'userManage'
-
+        m1.title = '艹'
+        m1.name = ''
         session.add(m1)
-        session.commit()
+        if session.commit():
+            print('success')
 
     def test_adds(self):
         session.add_all([

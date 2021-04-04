@@ -1,8 +1,16 @@
+import hashlib
+import os
+
 from tornado.web import RequestHandler
 
 from app.models.admin import Admin
 from app.models.menu import Menu
 from utils.conn import session
+
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+        os.path.abspath(__file__)
+    ))
 
 
 class IndexHandler(RequestHandler):
@@ -12,6 +20,7 @@ class IndexHandler(RequestHandler):
     def initialize(self):
         # 左侧导航栏
         self.navs = session.query(Menu).filter(Menu.parent_id == '').all()
+
         # 管理员导航栏
         self.admin_navs = session.query(Menu).filter(Menu.parent_id == 1)
 
@@ -43,6 +52,21 @@ class IndexHandler(RequestHandler):
         res.deleted = 0
         session.commit()
         session.close()
-    def on_finish(self):
-        print('finish')
-        session.close()
+
+    def post(self):
+        login_id = self.get_argument('login_id')
+        pwd = self.get_argument('pwd')
+        name = self.get_argument('name')
+
+        admin = Admin()
+        admin.name = name
+        admin.login_id = login_id
+        admin.password = hashlib.md5(pwd.encode('utf-8')).hexdigest()
+        admin.purview = 0
+        admin.deleted = 0
+        session.add(admin)
+        session.commit()
+
+
+def on_finish(self):
+    session.close()

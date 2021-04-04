@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block css %}
+<link rel="stylesheet" href="{{ static_url('css/blog.css') }}">{% end %}
+{% block content %}
+<div class="nav">
+    <ul>
+        {% for nav in blog_navs %}
+        <li><a href="javascript:void(0)" onclick="show({{ nav.id }})">{{ nav.title }}</a></li>
+        {% end %}
+    </ul>
+</div>
+<div class="content">
+    <div class="list">
+        <ul>
+            {% for blog in blogs %}
+            <li><a href="index?id={{ blog.id }}">
+                <div id="blog">
+                    <p id="title">{{ blog.title }}</p>
+                    <p class="name">分类：{{ blog.name }}</p><span class="time">发布时间：{{ blog.time }}</span>
+                </div>
+            </a>
+            </li>
+            {% end %}
+        </ul>
+    </div>
+    <div class="blog_con">
+        <p id="t1">{{ blog_con.title }}</p>
+        <p class="name">分类：{{ blog_con.name }}</p>
+        <p class="time">发布时间：{{ blog_con.time }}</p>
+        <hr>
+        <p id="con1">{{ blog_con.content }}</p>
+    </div>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="{{ static_url('js/admin.js') }}"></script>
+{% end %}

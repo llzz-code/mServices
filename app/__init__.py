@@ -3,6 +3,8 @@ import os
 from tornado.web import Application
 
 from app.ui.nav import NavModule
+from app.views.admin.blog_index import BlogHandler
+from app.views.base import BaseHandler
 from app.views.cookie_v import CookieHandler
 from app.views.download import DownloadHandler, AsyncDownloadHandler, AsyncHandler
 from app.views.index_v import IndexHandler
@@ -36,6 +38,8 @@ def make_app(host='localhost'):
         ('/admin/index', AdminHandler),
         ('/download', DownloadHandler),
         ('async', AsyncDownloadHandler),
-        ('/async2', AsyncHandler)
+        ('/async2', AsyncHandler),
+        ('/blog/index', BlogHandler),
+        (r'.*', BaseHandler)
     ], default_host=host,
         **settings)

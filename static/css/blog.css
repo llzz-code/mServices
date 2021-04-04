@@ -1,0 +1,119 @@
+.nav {
+    width: 100%;
+    height: 7%;
+    background-image: linear-gradient(to bottom right, #0b2627, #fff0f9);
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul {
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    float: left;
+    list-style: none;
+    margin-left: 10px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.nav li:hover {
+    background-color: cornflowerblue;
+    border-radius: 5px;
+}
+
+.content {
+    width: 100%;
+    height: 90%;
+    display: flex;
+}
+
+.list {
+    width: 40%;
+    height: 100%;
+    overflow: scroll;
+}
+
+.list::-webkit-scrollbar {
+    display: none
+}
+
+.list ul {
+    padding-inline-start: 0;
+}
+
+.list li {
+    list-style: none;
+}
+
+#blog {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    background-image: linear-gradient(to bottom right, rgba(97, 255, 250, 0.67), #e7a0ff);
+    margin-bottom: 10px;
+    position: relative;
+    opacity: 0.7;
+}
+
+p {
+    margin: 0 0 15px 0;
+    padding: 0;
+
+}
+
+.name {
+    display: inline-block;
+    font-weight: initial;
+    font-size: 13px;
+    color: #12823a;
+}
+
+#title {
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.time {
+    position: absolute;
+    right: 40px;
+    font-size: 13px;
+    font-weight: initial;
+    color: #0da12c;
+    display: inline-block;
+}
+
+.blog_con {
+    width: 60%;
+    height: 100%;
+    overflow: scroll;
+    background-image: linear-gradient(to bottom right, rgba(97, 255, 250, 0.67), #e7a0ff);
+    opacity: 0.7;
+    padding: 10px;
+}
+
+.blog_con::-webkit-scrollbar {
+    display: none
+}
+#t1{
+    font-size: 25px;
+    font-weight: bolder;
+    text-align: center;
+
+}
+
+a, a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+#con1{
+    font-size: 20px;
+    color: black;
+    font-family: arial, '华文行楷';
+}

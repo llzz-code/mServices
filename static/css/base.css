@@ -47,10 +47,13 @@ body{
 }
 a{
     text-decoration: none;
+    color: rgba(69, 145, 254, 0.98);
 }
 #right_con{
     width: 90%;
     height: 100%;
+
+    background-image: url("../images/nice.jpg");
 }
 #index_img{
     width: 100%;
