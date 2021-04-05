@@ -2,66 +2,94 @@
 {% block css %}
 <link rel="stylesheet" href="{{ static_url('css/admin.css') }}">{% end %}
 {% block content %}
-<div class="nav">
-    <ul>
-        {% for nav in admin_navs %}
-        <li><a href="javascript:void(0)" onclick="show({{ nav.id }})">{{ nav.title }}</a></li>
-        {% end %}
-    </ul>
-</div>
 <div class="content">
-    <table id="adm">
-        <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>purview</th>
-            <th>operate</th>
-        </tr>
-        {% for list in admins %}
-        <tr>
-            <td>{{ list.id }}</td>
-            <td>{{ list.name }}</td>
-            <td>{% if list.purview == 1 %}超级管理员{% else %}普通管理员{% end %}</td>
-            {% if list.deleted == 0 and list.purview == 0 %}
-            <td><a id="aid" href="javascript:void(0)" onclick="del({{ list.id }})">删除管理员</a></td>
-
-            {% end %}
-        </tr>
-        {% end %}
-    </table>
-    <table id="delAdm" style="display:none;">
-        <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>purview</th>
-            <th>operate</th>
-        </tr>
-        {% for list in deleted %}
-        <tr>
-            <td>{{ list.id }}</td>
-            <td>{{ list.name }}</td>
-            <td>无权限</td>
-            <td><a id="reset" href="javascript:void(0)" onclick="ret({{ list.id }})">撤销删除</a></td>
-
-        </tr>
-        {% end %}
-    </table>
-    <div id="add" style="display: none">
-        <div class="add">
-            <p>
-                <label>账号</label>
-                <input name="login_id" placeholder="请输入注册的账号" type="text" id="login_id" value="">
-            </p>
-            <p>
-                <label>密码</label>
-                <input type="password" name="password" id="pwd" value="">
-            </p>
-            <p>
-                <label>用户名</label>
-                <input name="name" , placeholder="请输入用户名" type="text" id="name" value="">
-            </p>
-            <p id="error" style="font-size: 20px"></p>
-            <button onclick="register()">确认</button>
+    <div class="content content-section">
+        <div class="admin-nav">
+            <div id="text"><p>账号列表</p></div>
+            <div id="ul">
+                <div id="input"><input placeholder="快速搜索" name="keyword"></div>
+                <ul>
+                    {% for nav in admin_navs %}
+                    <li><a href="javascript:void(0)" onclick="show({{ nav.id }})" class="li-a">{{ nav.title }}</a></li>
+                    {% end %}
+                </ul>
+            </div>
+        </div>
+        <div class="table">
+            <table id="adm">
+                <colgroup>
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                </colgroup>
+                <thead>
+                <tr style="font-size: 12px">
+                    <th>id</th>
+                    <th>name</th>
+                    <th>purview</th>
+                    <th>operate</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for list in admins %}
+                <tr>
+                    <td>{{ list.id }}</td>
+                    <td>{{ list.name }}</td>
+                    <td>{% if list.purview == 1 %}超级管理员{% else %}普通管理员{% end %}</td>
+                    {% if list.deleted == 0 and list.purview == 0 %}
+                    <td><a id="aid" href="javascript:void(0)" onclick="del({{ list.id }})">删除管理员</a></td>
+                    {% else %}
+                    <td></td>
+                    {% end %}
+                </tr>
+                {% end %}
+                </tbody>
+            </table>
+            <table id="delAdm" style="display:none;">
+                <colgroup>
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                </colgroup>
+                <thead>
+                <tr style="font-size: 12px">
+                    <th>id</th>
+                    <th>name</th>
+                    <th>purview</th>
+                    <th>operate</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for list in deleted %}
+                    <tr>
+                        <td>{{ list.id }}</td>
+                        <td>{{ list.name }}</td>
+                        <td>无权限</td>
+                        <td><a id="reset" href="javascript:void(0)" onclick="ret({{ list.id }})">撤销删除</a></td>
+                    </tr>
+                    {% end %}
+                </tbody>
+            </table>
+            <div id="add" style="display: none">
+                <div class="add">
+                    <p>
+                        <label>账号</label>
+                        <input name="login_id" placeholder="请输入注册的账号" type="text" id="login_id" value="">
+                    </p>
+                    <p>
+                        <label>密码</label>
+                        <input type="password" name="password" id="pwd" value="">
+                    </p>
+                    <p>
+                        <label>用户名</label>
+                        <input name="name" , placeholder="请输入用户名" type="text" id="name" value="">
+                    </p>
+                    <p id="error" style="font-size: 20px"></p>
+                    <button onclick="register()">确认</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

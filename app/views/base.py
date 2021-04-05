@@ -23,4 +23,4 @@ class BaseHandler(RequestHandler):
                             "<body>%(code)d: %(message)s</body></html>" % {
                                 "code": status_code,
                                 "message": self._reason,
-                            })
+                            })  

@@ -28,20 +28,109 @@
 .content{
     width: 100%;
     height: 100%;
+    background-color: #F2F2F2;
 }
-.content td{
-    text-align: center;
-    width: 100px;
-    height: 50px;
+.content-section{
+    background-color: white;
+    border-radius: 5px;
+    width: 100%;
+    height: 95%;
+    margin: 20px;
+    padding: 10px;
 }
-.content th{
-    text-align: center;
-    width: 100px;
+.admin-nav{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    margin: 0;
+}
+#text {
+    width: 10%;
     height: 50px;
-    color: white;
+    display: flex;
+    align-items: center;
+}
+#text p{
+    margin: 0;
+    padding: 0;
+    color: #6A9CCF;
+}
+#ul{
+    width: 650px;
+    height: 50px;
+    right: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#input{
+    display: inline-block;
+    border-radius: 5px;
+    height: 30px;
+}
+#ul ul{
+    display: flex;
+    width: 400px;
+    height: 30px;
+}
+#ul li{
+    float: left;
+    list-style: none;
+    margin-left: 10px;
+    text-align: center;
+    width: 200px;
+    height:30px;
+    line-height: 30px;
+}
+.li-a{
+    background-color: #ff0042;
+    border-color: #ff0042;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    width: 118px;
+    font-size: 14px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.table{
+    width: 80%;
+    position: absolute;
+    margin: 100px 0 0 20px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    empty-cells: show;
+    border-color: grey;
+    overflow-y: scroll;
+    height: 80%;
 }
 table{
-    color: white;
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    empty-cells: show;
+    height: 100%;
+}
+td{
+    padding: 10px 15px;
+    line-height: 1.8em;
+    border-bottom: 1px solid #e5e5e5;
+    height: 48px;
+}
+td a{
+    color: red;
+}
+.table th{
+    font-weight: normal;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 15px;
+    background-color: #fafafa;
+    text-align: left;
+    border-top: 1px solid #dfdfdf;
 }
 #add{
     width: 100%;
@@ -50,7 +139,7 @@ table{
 .add p{
     margin: 50px 0 30px 0;
     padding: 0;
-    color: white;
+    color: black;
 }
 .add{
     margin: 0 auto;
